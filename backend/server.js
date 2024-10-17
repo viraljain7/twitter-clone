@@ -2,6 +2,8 @@
 import express from 'express';
 import authRoutes from "./routes/auth.routes.js"
 import userRoutes from "./routes/user.route.js"
+import postRoutes from "./routes/post.route.js"
+
 import { configDotenv } from 'dotenv';
 import connectMongoDB from './DB/connectMongoDB.js';
 import cookieParser from 'cookie-parser';
@@ -21,6 +23,8 @@ app.use(cookieParser())
 //process a simple route
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/posts', postRoutes);
+
 
 // Set up the server to listen on a port
 const PORT = process.env.PORT || 5000;
